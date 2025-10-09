@@ -13,7 +13,7 @@ app.use(express.json());
 
 // Enable CORS for frontend
 app.use(cors({
-  origin: 'http://localhost:5173', // React URL
+  origin: 'https://picto-text-front.onrender.com', // React URL
   credentials: true,
 }));
 
