@@ -13,12 +13,19 @@ app.use(express.json());
 
 // Enable CORS for frontend
 app.use(cors({
-  origin: 'https://picto-text-front.onrender.com', // React URL
+  origin: [ 'https://picto-text-front.onrender.com', 'http://localhost:5173' ],
   credentials: true,
 }));
 
 // Connect to MongoDB
-await connectDB();
+(async () => {
+  try {
+    await connectDB();
+  } catch (error) {
+    console.error('Failed to connect to MongoDB:', error.message);
+    process.exit(1);
+  }
+})();
 
 // Routes
 app.use('/api/users', userRouter);

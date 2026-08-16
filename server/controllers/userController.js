@@ -4,7 +4,8 @@ import jwt from "jsonwebtoken";
 
 const registerUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, password } = req.body;
+    const email = (req.body.email || '').trim().toLowerCase();
 
     if (!name || !email || !password) {
       return res.json({ success: false, message: "Please provide all required fields" });
@@ -48,7 +49,8 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { password } = req.body;
+    const email = (req.body.email || '').trim().toLowerCase();
     const user = await userModel.findOne({ email });
 
     if (!user) return res.json({ success: false, message: "User not found" });
