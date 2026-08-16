@@ -1,12 +1,12 @@
-.history
+node_modules/
+**/node_modules/
 
-# Local file history
-.history/
-**/.history/
-
-# Environment files
 .env
 .env.*
 **/.env
 **/.env.*
-!.env.example
+
+.history/
+**/.history/
+
+*.log
