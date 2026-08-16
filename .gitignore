@@ -1,0 +1,12 @@
+.history
+
+# Local file history
+.history/
+**/.history/
+
+# Environment files
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
